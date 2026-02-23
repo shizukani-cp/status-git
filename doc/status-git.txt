@@ -1,0 +1,40 @@
+*status-git.txt* Git component sources for status.nvim      Last Change: 2026-02-23
+
+==============================================================================
+INTRODUCTION                                                *status-git*
+
+This plugin provides Git-related component sources for status.nvim.
+It acts as a wrapper for popular Git plugins to provide seamless integration
+with your statusline.
+
+==============================================================================
+
+SOURCES                                               *status-git-sources*
+
+git.branch()                                              *status-git.branch()*
+    Returns the current branch name with a icon ().
+    It checks for information in the following order:
+    1. b:gitsigns_head (from gitsigns.nvim)
+    2. FugitiveHead()  (from vim-fugitive)
+    Returns an empty string if no branch information is found.
+
+git.diff()                                                  *status-git.diff()*
+    Returns the git diff status (added, changed, removed) with icons.
+    This function specifically requires |gitsigns.nvim|.
+    Icons used:  (added),  (changed),  (removed).
+    Only non-zero values are displayed.
+
+==============================================================================
+
+DEPENDENCIES                                         *status-git-dependencies*
+
+To use these sources, one of the following plugins is recommended:
+
+- gitsigns.nvim (highly recommended for both branch and diff)
+- vim-fugitive  (supported for branch name fallback)
+
+Note: A Nerd Font is required to display icons correctly.
+
+==============================================================================
+
+vim:tw=78:ft=help:norl:
